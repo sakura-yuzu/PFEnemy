@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
+using TMPro;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 class SceneController : MonoBehaviour
 {
@@ -43,5 +47,41 @@ class SceneController : MonoBehaviour
 			GameObject toggle = Instantiate(buttonPrefab, CharacterList.transform, false);
 			toggle.transform.Find("Label").GetComponent<Text>().text = creature.displayName;
 			toggle.GetComponent<Toggle>().group = ToggleGroup;
+			toggle.GetComponent<Toggle>().onValueChanged.AddListener((isOn) => OnToggleValueChanged(creature.displayName, isOn));
+
+			var enemyPrefab = await Addressables.LoadAssetAsync<GameObject>(creature.prefabAddress).Task;
+			var instance = Instantiate(enemyPrefab, PreviewCube, false);
+			instance.SetActive(false);
+			SetLayerRecursively(instance, UIViewLayer);
+			creatureInstances[creature.displayName] = instance;
+		}
+	}
+
+	private void OnToggleValueChanged(string creatureName, bool isOn)
+	{
+		Debug.Log($"Toggle for {creatureName} is now {(isOn ? "On" : "Off")}");
+		if (creatureInstances.TryGetValue(creatureName, out GameObject creatureInstance))
+		{
+			creatureInstance.SetActive(isOn);
+		}
+	}
+
+	private void SetLayerRecursively(GameObject obj, int newLayer)
+	{
+		if (obj == null)
+		{
+			return;
+		}
+
+		obj.layer = newLayer;
+
+		foreach (Transform child in obj.transform)
+		{
+			if (child == null)
+			{
+				continue;
+			}
+			SetLayerRecursively(child.gameObject, newLayer);
+		}
 	}
 }
