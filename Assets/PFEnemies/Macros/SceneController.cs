@@ -4,6 +4,7 @@ using UnityEngine.AddressableAssets;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 
 class SceneController : MonoBehaviour
 {
@@ -21,11 +22,12 @@ class SceneController : MonoBehaviour
 	public Button DodgeButton;
 	public CreatureList CreatureList;
 	public GameObject CharacterList;
-	public GameObject cube;
+	public Transform MainCube;
 	public Transform PreviewCube;
 	public Button SelectButton;
 	private Dictionary<string, GameObject> creatureInstances = new Dictionary<string, GameObject>();
 	private int UIViewLayer;
+	private string SelectedCreature;
 	void Awake()
 	{
 		// Set the target frame rate to 60fps
@@ -55,11 +57,24 @@ class SceneController : MonoBehaviour
 			SetLayerRecursively(instance, UIViewLayer);
 			creatureInstances[creature.displayName] = instance;
 		}
+		SelectButton.onClick.AddListener(OnSelectButtonClicked);
+
+	}
+	private async void OnSelectButtonClicked()
+	{
+		await InstantiatePrefab();
 	}
 
+	private async Task InstantiatePrefab()
+	{
+		CreatureSetting creature = CreatureList.creatures.Find(creature => creature.displayName == SelectedCreature);
+		var enemyPrefab = await Addressables.LoadAssetAsync<GameObject>(creature.prefabAddress).Task;
+		Instantiate(enemyPrefab, MainCube, false);
+	}
 	private void OnToggleValueChanged(string creatureName, bool isOn)
 	{
 		Debug.Log($"Toggle for {creatureName} is now {(isOn ? "On" : "Off")}");
+		SelectedCreature = creatureName;
 		if (creatureInstances.TryGetValue(creatureName, out GameObject creatureInstance))
 		{
 			creatureInstance.SetActive(isOn);
