@@ -25,9 +25,13 @@ class SceneController : MonoBehaviour
 	public Transform MainCube;
 	public Transform PreviewCube;
 	public Button SelectButton;
+	public Canvas CharacterSelectCanvas;
+	public Canvas ActionButtonCanvas;
+	public Button OpenCharacterSelectButton;
 	private Dictionary<string, GameObject> creatureInstances = new Dictionary<string, GameObject>();
 	private int UIViewLayer;
 	private string SelectedCreature;
+	private GameObject CurrentModel;
 	void Awake()
 	{
 		// Set the target frame rate to 60fps
@@ -63,13 +67,19 @@ class SceneController : MonoBehaviour
 	private async void OnSelectButtonClicked()
 	{
 		await InstantiatePrefab();
+		CharacterSelectCanvas.gameObject.SetActive(false);
+		ActionButtonCanvas.gameObject.SetActive(true);
 	}
 
 	private async Task InstantiatePrefab()
 	{
+		if (CurrentModel != null)
+		{
+			Destroy(CurrentModel);
+		}
 		CreatureSetting creature = CreatureList.creatures.Find(creature => creature.displayName == SelectedCreature);
 		var enemyPrefab = await Addressables.LoadAssetAsync<GameObject>(creature.prefabAddress).Task;
-		Instantiate(enemyPrefab, MainCube, false);
+		CurrentModel = Instantiate(enemyPrefab, MainCube, false);
 	}
 	private void OnToggleValueChanged(string creatureName, bool isOn)
 	{
