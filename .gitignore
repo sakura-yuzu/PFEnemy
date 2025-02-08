@@ -72,10 +72,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # 大きすぎるので除外
-/Assets/Project/Fonts/**/*.otf
-/Assets/Project/Fonts/**/*.ttf
-/Assets/Project/Fonts/**/*.asset
-/Assets/Project/Fonts/**/*.meta
+/Assets/PFEnemies/Fonts/**/*.otf
+/Assets/PFEnemies/Fonts/**/*.ttf
+/Assets/PFEnemies/Fonts/**/*.asset
+/Assets/PFEnemies/Fonts/**/*.meta
 
 # 外部パッケージ
 /Assets/TextMesh Pro/**/*
