@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6eb5fc686ec1a4b8db2bcc5a90aa11, type: 3}
+  m_Name: creatureList
+  m_EditorClassIdentifier: 
+  creatures:
+  - {fileID: 11400000, guid: 41f0635e127eace44b4554adac6ab824, type: 2}
+  - {fileID: 11400000, guid: cfa9de306432d8e4e90e95c156181447, type: 2}
+  - {fileID: 11400000, guid: 22b621a2c0c7aee488ca3136dbca70c0, type: 2}
