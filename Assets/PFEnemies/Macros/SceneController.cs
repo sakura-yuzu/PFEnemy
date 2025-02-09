@@ -5,7 +5,6 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using System.Threading.Tasks;
-
 class SceneController : MonoBehaviour
 {
 	public Button AttackButton;
@@ -23,6 +22,7 @@ class SceneController : MonoBehaviour
 	public CreatureList CreatureList;
 	public GameObject CharacterList;
 	public Transform MainCube;
+	public CameraController MainCamera;
 	public Transform PreviewCube;
 	public Button SelectButton;
 	public Canvas CharacterSelectCanvas;
@@ -62,11 +62,24 @@ class SceneController : MonoBehaviour
 			creatureInstances[creature.displayName] = instance;
 		}
 		SelectButton.onClick.AddListener(OnSelectButtonClicked);
-
+		// アニメーション用ボタンたち
+		AttackButton.onClick.AddListener(OnAttackButtonClicked);
+		SkillButton.onClick.AddListener(OnSkillButtonClicked);
+		DamagedButton.onClick.AddListener(OnDamagedButtonClicked);
+		DeadButton.onClick.AddListener(OnDeadButtonClicked);
+		HealButton.onClick.AddListener(OnHealButtonClicked);
+		BuffButton.onClick.AddListener(OnBuffButtonClicked);
+		DebuffButton.onClick.AddListener(OnDebuffButtonClicked);
+		SpecialAttackButton.onClick.AddListener(OnSpecialAttackButtonClicked);
+		AbnormalStateButton.onClick.AddListener(OnAbnormalStateButtonClicked);
+		SummonButton.onClick.AddListener(OnSummonButtonClicked);
+		CriticalAttackButton.onClick.AddListener(OnCriticalAttackButtonClicked);
+		DodgeButton.onClick.AddListener(OnDodgeButtonClicked);
 	}
 	private async void OnSelectButtonClicked()
 	{
 		await InstantiatePrefab();
+		MainCamera.ResetCamera();
 		CharacterSelectCanvas.gameObject.SetActive(false);
 		ActionButtonCanvas.gameObject.SetActive(true);
 	}
@@ -108,5 +121,65 @@ class SceneController : MonoBehaviour
 			}
 			SetLayerRecursively(child.gameObject, newLayer);
 		}
+	}
+
+	private void OnAttackButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Attack");
+	}
+
+	private void OnSkillButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Skill");
+	}
+
+	private void OnDamagedButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Damaged");
+	}
+
+	private void OnDeadButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Dead");
+	}
+
+	private void OnHealButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Heal");
+	}
+
+	private void OnBuffButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Buff");
+	}
+
+	private void OnDebuffButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Debuff");
+	}
+
+	private void OnSpecialAttackButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("SpecialAttack");
+	}
+
+	private void OnAbnormalStateButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("AbnormalState");
+	}
+
+	private void OnSummonButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Summon");
+	}
+
+	private void OnCriticalAttackButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("CriticalAttack");
+	}
+
+	private void OnDodgeButtonClicked()
+	{
+		CurrentModel.GetComponent<Animator>().SetTrigger("Dodge");
 	}
 }
