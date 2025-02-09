@@ -5,7 +5,6 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using System.Threading.Tasks;
-
 class SceneController : MonoBehaviour
 {
 	public Button AttackButton;
@@ -23,6 +22,7 @@ class SceneController : MonoBehaviour
 	public CreatureList CreatureList;
 	public GameObject CharacterList;
 	public Transform MainCube;
+	public CameraController MainCamera;
 	public Transform PreviewCube;
 	public Button SelectButton;
 	public Canvas CharacterSelectCanvas;
@@ -67,6 +67,7 @@ class SceneController : MonoBehaviour
 	private async void OnSelectButtonClicked()
 	{
 		await InstantiatePrefab();
+		MainCamera.ResetCamera();
 		CharacterSelectCanvas.gameObject.SetActive(false);
 		ActionButtonCanvas.gameObject.SetActive(true);
 	}

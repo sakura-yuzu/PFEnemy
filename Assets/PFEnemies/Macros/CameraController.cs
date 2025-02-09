@@ -5,6 +5,15 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 5.0f;
 		public GameObject MainCube;
     private Vector3 lastMousePosition;
+		private Vector3 initialPosition;
+		private Quaternion initialRotation;
+
+    void Start()
+    {
+        // 初期位置と初期回転を保存
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+    }
 
     void Update()
     {
@@ -25,4 +34,10 @@ public class CameraController : MonoBehaviour
             lastMousePosition = Input.mousePosition;
         }
     }
+
+		public void ResetCamera()
+		{
+			transform.position = initialPosition;
+			transform.rotation = initialRotation;
+		}
 }
