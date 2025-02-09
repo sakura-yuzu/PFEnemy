@@ -1,0 +1,20 @@
+{
+  "name": "com.poplar-fantasm.pfenemy",
+  "version": "1.0.0",
+  "displayName": "PFEnemy",
+  "description": "Enemy Data for Poplarfantasm",
+  "unity": "2020.3",
+  "author": {
+    "name": "Yuzu Sakura",
+    "email": "katakuripowder@gmail.com",
+    "url": "http://poplar-fantasm.com"
+  },
+  "keywords": [
+    "RPG",
+    "Fantasy",
+    "Enemy"
+  ],
+  "dependencies": {
+    "com.unity.some-dependency": "1.2.3"
+  }
+}
