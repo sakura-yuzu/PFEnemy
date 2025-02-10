@@ -1,6 +1,8 @@
 using UnityEngine;
-
-class Creature : MonoBehaviour
+namespace PFEnemies.Macros
 {
-	public CreatureSetting setting;	
+	class Creature : MonoBehaviour
+	{
+		public CreatureSetting setting;
+	}
 }
