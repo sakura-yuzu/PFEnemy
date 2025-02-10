@@ -13,8 +13,5 @@
     "RPG",
     "Fantasy",
     "Enemy"
-  ],
-  "dependencies": {
-    "com.unity.some-dependency": "1.2.3"
-  }
+  ]
 }
