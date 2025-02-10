@@ -75,11 +75,6 @@ crashlytics-build.properties
 /Assets/PFEnemies/Fonts/**/*.otf
 /Assets/PFEnemies/Fonts/**/*.ttf
 /Assets/PFEnemies/Fonts/**/*.asset
-/Assets/PFEnemies/Fonts/**/*.meta
 
 # 外部パッケージ
 /Assets/TextMesh Pro/**/*
-/Assets/AddressableAssetsData/**/*
-/Assets/Plugins/UniTask/**/*
-
-/Assets/PFEnemies/Fonts/**/*

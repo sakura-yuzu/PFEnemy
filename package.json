@@ -13,5 +13,8 @@
     "RPG",
     "Fantasy",
     "Enemy"
-  ]
+  ],
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  }
 }

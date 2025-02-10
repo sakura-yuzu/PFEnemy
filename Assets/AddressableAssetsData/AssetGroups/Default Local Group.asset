@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: df441d7e5560b1e47bb00637a6a69269
+  m_SerializeEntries:
+  - m_GUID: 44a8d00a3c141f048a963291daa920c4
+    m_Address: Assets/PFEnemies/Prefabs/Toggle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 92bfcdf38fc8bd94baa9a03301650f3a
+    m_Address: Assets/PFEnemies/Prefabs/caterpillar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 854cedec39262fd448b5eebb0f860d0d
+    m_Address: Assets/PFEnemies/Prefabs/mushroom.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a9fea26118762be4ebb5e8c96512ef17
+    m_Address: Assets/PFEnemies/Prefabs/vine.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8c094d6c4e3883242851555cdad930cc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e392c99a6644c7d429b4982bfce8741a, type: 2}
+    - {fileID: 11400000, guid: 879b0a1045d869543a0c493ec1d1b4b8, type: 2}
